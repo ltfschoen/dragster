@@ -1,7 +1,4 @@
 /* Prevent the text contents of draggable elements from being selectable. */
-* {
-  border: 1px solid black;
-}
 
 [draggable] {
   -moz-user-select: none;
@@ -50,4 +47,20 @@
   -ms-border-top-right-radius: 10px;
   -moz-border-radius-topright: 10px;
   border-top-right-radius: 10px;
+}
+.hole {
+  clear: left;
+  text-align: center;
+  height: 150px;
+  width: 150px;
+  background-color: #ddcaaa;
+  border-color: #ddcaaa;
+  -webkit-border-radius: 80px;
+  -ms-border-radius: 80px;
+  -moz-border-radius: 80px;
+  border-radius: 80px;
+}
+// column during hover becomes dashed. indicative of drop target
+.column.over {
+  border: 2px dashed #000;
 }

@@ -1,16 +1,92 @@
 <h1>Areas</h1>
 
-
+<!-- 
+  HTML5 Drag and drop (DnD) event based JavaScript API.
+  Draggable content has attribute set to 'true'.
+  CSS3 used to improve markup of draggables.
+  Listeners to process drag/drop event model.
+  DnD sequence has event handlers applied to columns.
+-->
 <div id="columns">
   <div class="column" draggable="true"><header>A</header></div>
   <div class="column" draggable="true"><header>B</header></div>
   <div class="column" draggable="true"><header>C</header></div>
 </div>
+<div id="columns">
+  <div class="hole"><header>O</header></div>
+</div>
 
 <script>
+  // Feature detection using Modernizr library to check for DnD
   if (Modernizr.draganddrop) {
     // Browser supports HTML5 DnD.
   } else {
     // Fallback to a library solution.
   }
+
+  // DataTransfer property holds data sent in drag action
+  var dragSrcEl = null;
+
+  function handleDragStart(e) {
+    this.style.opacity = '0.4';  // this / e.target is source node.
+    
+    dragSrcEl = this;
+
+    e.dataTransfer.effectAllowed = 'move';
+    // set object content to mimetype
+    // data payload of source column HTML passed as args
+    e.dataTransfer.setData('text/html', this.innerHTML);
+  }
+
+  function handleDragOver(e) {
+    if (e.preventDefault) {
+      e.preventDefault(); // allows dropping instead of link
+    }
+    e.dataTransfer.dropEffect = 'move';  // see DataTransfer object
+    return false;
+  }
+
+  function handleDragEnter(e) {
+    // this / e.target is current hover target.
+    this.classList.add('over');
+  }
+
+  function handleDragLeave(e) {
+    // this / e.target is previous target element.
+    this.classList.remove('over');  
+  }
+
+  function handleDrop(e) {
+    // this / e.target is current target element.
+    if (e.stopPropagation) {
+      e.stopPropagation(); // stops browser from redirecting.
+    }
+
+    // no action if dropping same column being dragged
+    if (dragSrcEl != this) {
+      // set source column HTML to HTML of column we dropped on
+      dragSrcEl.innerHTML = this.innerHTML;
+      this.innerHTML = e.dataTransfer.getData('text/html');
+    }
+
+    // see DataTransfer object.
+    return false;
+  }
+
+  function handleDragEnd(e) {
+    // this/e.target is the source node.
+    [].forEach.call(cols, function (col) {
+      col.classList.remove('over');
+    });
+  }
+
+  var cols = document.querySelectorAll('#columns .column');
+  [].forEach.call(cols, function(col) {
+    col.addEventListener('dragstart', handleDragStart, false);
+    col.addEventListener('dragenter', handleDragEnter, false);
+    col.addEventListener('dragover', handleDragOver, false);
+    col.addEventListener('dragleave', handleDragLeave, false);
+    col.addEventListener('drop', handleDrop, false);
+    col.addEventListener('dragend', handleDragEnd, false);
+  });
 </script>
