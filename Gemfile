@@ -8,9 +8,11 @@ group :production do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer',  platforms: :ruby
   gem 'jbuilder', '~> 2.0' # build JSON APIs
-  gem "rails_12factor"
+  gem "rails_12factor" # images and partials on heroku
   # gem 'bcrypt', '~> 3.1.7' # ActiveModel has_secure_password
   # gem 'unicorn' # unicorn as the app server
+  # https://devcenter.heroku.com/articles/ruby-support#static-assets
+  gem 'rails_serve_static_assets'
 end
 
 group :development, :production do
