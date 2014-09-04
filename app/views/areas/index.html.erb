@@ -1,1 +1,16 @@
 <h1>Areas</h1>
+
+
+<div id="columns">
+  <div class="column" draggable="true"><header>A</header></div>
+  <div class="column" draggable="true"><header>B</header></div>
+  <div class="column" draggable="true"><header>C</header></div>
+</div>
+
+<script>
+  if (Modernizr.draganddrop) {
+    // Browser supports HTML5 DnD.
+  } else {
+    // Fallback to a library solution.
+  }
+</script>
