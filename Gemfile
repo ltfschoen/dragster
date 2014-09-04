@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 group :production do
   gem 'rails', '4.1.4' # bundles edge rails 
   gem 'pg' # use psql as db for Active Record
-  gem 'sass-rails', '~> 4.0.3' # SCSS for stylesheets 
   gem 'uglifier', '>= 1.3.0' # compressor for JS assets
   gem 'coffee-rails', '~> 4.0.0' # CoffeeScript for .js.coffee assets and views
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -17,7 +16,11 @@ end
 group :development, :production do
   # called from application.html.erb
   gem 'jquery-rails' # jQuery JS library
+  gem "jquery-ui-rails", "~> 5.0.0"
+  gem "bootstrap-sass"
+  gem "underscore-rails"
   gem 'turbolinks' # faster links
+  gem 'sass-rails', '~> 4.0.3' # SCSS for stylesheets 
 end
 
 group :development, :test do
