@@ -32,6 +32,9 @@ module DragsterApp
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
 
+
+    config.assets.enabled = true
+    config.assets.version = '1.0'
     # test to try and get mixins loaded when deploy to heroku
     config.assets.initialize_on_precompile = false
 
