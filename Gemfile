@@ -1,40 +1,50 @@
 source 'https://rubygems.org'
 
+group :production do
+  gem 'rails', '4.1.4' # bundles edge rails 
+  gem 'pg' # use psql as db for Active Record
+  gem 'sass-rails', '~> 4.0.3' # SCSS for stylesheets 
+  gem 'uglifier', '>= 1.3.0' # compressor for JS assets
+  gem 'coffee-rails', '~> 4.0.0' # CoffeeScript for .js.coffee assets and views
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer',  platforms: :ruby
+  gem 'jbuilder', '~> 2.0' # build JSON APIs
+  gem "rails_12factor"
+  # gem 'bcrypt', '~> 3.1.7' # ActiveModel has_secure_password
+  # gem 'unicorn' # unicorn as the app server
+end
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
-# Use postgresql as the database for Active Record
-gem 'pg'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+group :development, :production do
+  # called from application.html.erb
+  gem 'jquery-rails' # jQuery JS library
+  gem 'turbolinks' # faster links
+end
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+group :development, :test do
+  # gem 'debugger'
+  gem "dotenv-rails"
+  gem "factory_girl_rails", ">= 4.4.1" # extend Rails default fixtures with factories 
+  gem "rspec-rails", ">= 3.0.2"
+end
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+group :test do
+  gem "capybara", ">= 2.4.1"
+  gem "faker" # generates fake data for testing
+  gem "guard-rspec" # runs tests automatically when code changes
+  gem "launchy", ">= 2.4.2" # enables save_and_open_page command with Capybara 
+  gem "rb-fsevent" # prerequisite for Guard
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+  # RSpec to load JS when run specs
+  gem "selenium-webdriver" # use Selenium as Webdriver when running Feature specs
+  gem "database_cleaner", ">= 1.3.0" # clean database after each spec for Selenium
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
+group :development do
+  # gem 'capistrano-rails' # Capistrano for deployment
+  # https://github.com/rails/spring
+  gem 'spring' # faster development keeping app running in background
+end
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+group :doc do
+  gem 'sdoc', '~> 0.4.0' # bundle exec rake doc:rails generates the API under doc/api.
+end

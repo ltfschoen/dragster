@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root :to => 'area#index'
+  root :to => 'areas#index'
 end
