@@ -34,6 +34,7 @@ group :test do
   gem "launchy", ">= 2.4.2" # enables save_and_open_page command with Capybara 
   gem "rb-fsevent" # prerequisite for Guard
   gem "selenium-webdriver" # use Selenium as Webdriver when running Feature specs
+  gem "shoulda-matchers"
 end
 
 group :development, :test do
