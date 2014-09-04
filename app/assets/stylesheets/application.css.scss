@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+ @import 'areas'; /* imports SCSS partial _areas.css.scss */
