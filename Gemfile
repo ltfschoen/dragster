@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
 group :production do
   # gem 'bcrypt', '~> 3.1.7' # ActiveModel has_secure_password
   gem 'coffee-rails', '~> 4.0.0' # CoffeeScript for .js.coffee assets and views
