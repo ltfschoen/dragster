@@ -34,5 +34,8 @@ module DragsterApp
 
     # test to try and get mixins loaded when deploy to heroku
     config.assets.initialize_on_precompile = false
+
+    # added so mixins load when deploy to heroku
+    config.assets.precompile += %w( application.css.scss )
   end
 end
