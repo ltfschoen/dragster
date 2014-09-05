@@ -48,18 +48,18 @@
   -moz-border-radius-topright: 150px;
   border-top-right-radius: 150px;
 }
-.hole {
-  clear: left;
-  text-align: center;
-  height: 150px;
-  width: 150px;
-  background-color: #ddcaaa;
-  border-color: #ddcaaa;
-  -webkit-border-radius: 80px;
-  -ms-border-radius: 80px;
-  -moz-border-radius: 80px;
-  border-radius: 80px;
-}
+// .hole {
+//   clear: left;
+//   text-align: center;
+//   height: 150px;
+//   width: 150px;
+//   background-color: #ddcaaa;
+//   border-color: #ddcaaa;
+//   -webkit-border-radius: 80px;
+//   -ms-border-radius: 80px;
+//   -moz-border-radius: 80px;
+//   border-radius: 80px;
+// }
 // column during hover becomes dashed. indicative of drop target
 .column.over {
   border: 2px dashed #000;
@@ -85,13 +85,7 @@
 .edumal { background-image: url('edumal.png'); background-size: cover; }
 .keepal { background-image: url('keepal_entry_screen.png'); background-size: cover; }
 
-.column {
-  color: #4AB0D9;
-  &:visited {
-    color: #4A7ED9;
-  }
-  &:hover {
-    color: #ACD41E;
-    zoom: max-width;
-  }
+.blur {
+  opacity:0.5;
+  filter:alpha(opacity=30); /* For IE8 and earlier */
 }
