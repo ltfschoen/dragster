@@ -13,6 +13,7 @@
   height: 150px;
   width: 150px;
   float: left;
+  margin: 7px;
   border: 2px solid #666666;
   background-color: #ccc;
   margin-right: 5px;
@@ -88,4 +89,98 @@
 .blur {
   opacity:0.5;
   filter:alpha(opacity=30); /* For IE8 and earlier */
+}
+
+i {
+margin: 10px;
+vertical-align: center;
+font-size: 22px;
+}
+
+#social-media {
+  display: inline-block;
+  width: 12%;
+  /*float: right;*/
+  /*position: relative;*/
+  vertical-align: top;
+}
+
+.social-media a {
+  display: block;
+  width: 65px;
+  height: 65px;
+  background-image: image-url('social-media-sprite.png');
+  float: left;
+  
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.social-media a.behance {
+  background-position: 0px 0px;
+}
+
+.social-media a.twitter {
+  background-position: -65px 0px;
+}
+
+.social-media a.linkedin {
+  background-position: -195px 0px;
+}
+
+.social-media a.github {
+  background-position: -260px 0px;
+}
+
+.social-media a.nm {
+  background-position: -325px 0px;
+}
+
+.social-media a.blogspot {
+  background-position: -390px 0px;
+}
+
+.social-media a.google {
+  background-position: -455px 0px;
+}
+
+.social-media a.codepen {
+  background-position: -520px 0px;
+}
+
+.social-media a.behance:hover {
+  background-position: 0px -65px;
+}
+
+.social-media a.twitter:hover {
+  background-position: -65px -65px;
+}
+
+.social-media a.linkedin:hover {
+  background-position: -195px -65px;
+}
+
+.social-media a.github:hover {
+  background-position: -260px -65px;
+}
+
+.social-media a.nm:hover {
+  background-position: -325px -65px;
+}
+
+.social-media a.blogspot:hover {
+  background-position: -390px -65px;
+}
+
+.social-media a.google:hover {
+  background-position: -455px -65px;
+}
+
+.social-media a.codepen:hover {
+  background-position: -520px -65px;
+}
+
+.clear {
+  clear: both;
 }

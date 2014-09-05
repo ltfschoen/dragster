@@ -3,6 +3,7 @@
 <head>
   <title>DragsterApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Lemon' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,6 +12,19 @@
 <!-- temporarily removed devise login buttons and alerts and notices. restore via git -->
 
 <%= yield %>
+
+<% if Rails.env.production? %>
+  <!-- adsense -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- portfolio_ad -->
+  <ins class="adsbygoogle"
+  style="display:inline-block;width:320px;height:50px"
+  data-ad-client="ca-pub-3774443777675026"
+  data-ad-slot="7911437792"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+<% end %>
 
 <!-- load google google analytics from application_helper.rb -->
 <!-- http://subratrout.com/blog/adding-google-analytics-to-a-rails-app/ -->
