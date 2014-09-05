@@ -26,6 +26,8 @@ group :development, :production do
   gem 'sass-rails', '~> 4.0.3' # SCSS for stylesheets 
   gem 'turbolinks' # faster links
   gem "underscore-rails"
+  # https://rubygems.org/gems/backbone-on-rails
+  gem 'backbone-on-rails', '~> 1.1.1.0'
 end
 
 group :test do

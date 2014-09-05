@@ -14,6 +14,14 @@
 //= require jquery_ujs
 //= require underscore
 //= require bootstrap
-//= require modernizr-latest-2.8.3
+//= require development/modernizr-latest-2.8.3
 //= require turbolinks
+//= require underscore
+//= require backbone
+//= require dragster_app
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .
