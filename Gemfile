@@ -42,7 +42,7 @@ end
 group :development, :test do
   # gem 'debugger'
   gem "factory_girl_rails", ">= 4.4.1" # extend Rails default fixtures with factories 
-  gem "rspec-rails", ">= 3.0.2"
+  gem "rspec-rails", ">= 3.0.2" # dev (hook generators) and test 
 end
 
 group :development do
