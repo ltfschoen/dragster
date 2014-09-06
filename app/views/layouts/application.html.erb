@@ -12,8 +12,9 @@
 <body>
 
 <!-- temporarily removed devise login buttons and alerts and notices. restore via git -->
-
-<%= yield %>
+<div id="container">
+  <%= yield %>
+</div>
 
 <% if Rails.env.production? %>
   <!-- adsense -->

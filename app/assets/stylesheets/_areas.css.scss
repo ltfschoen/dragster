@@ -25,7 +25,7 @@
   -ms-box-shadow: inset 0 0 3px #000;
   box-shadow: inset 0 0 3px #000;
   text-align: center;
-  cursor: move;
+  cursor: pointer;
 }
 .column header {
   font-family: 'Dosis', sans-serif;
@@ -184,4 +184,21 @@ font-size: 22px;
 
 .clear {
   clear: both;
+}
+
+#periods {
+  display: inline-block;
+  margin-left: 4px;
+  margin-top: 5px;
+  zoom: 1.03;
+  vertical-align: top;
+}
+
+#logo {
+  display: inline-block;
+  float: left;
+  margin-left: 4px;
+  margin-top: 5px;
+  zoom: 1.03;
+  vertical-align: top;
 }
