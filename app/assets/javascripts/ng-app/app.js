@@ -5,7 +5,8 @@
   var dragsterApp = angular.module('DragsterApp', [
     'ngRoute',
     'templates',
-    'dragsterControllers'
+    'dragsterControllers',
+    'dragsterDirectives'
   ]);
   
   dragsterApp.config(['$routeProvider', '$locationProvider', 
