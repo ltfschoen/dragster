@@ -1,0 +1,156 @@
+<!-- <h1>Home View</h1>
+<ul>
+    <li ng-repeat="thing in things">
+        {{thing}}
+    </li>
+</ul> -->
+
+<div id="logo" class="clear">
+  <%= image_tag("ls4.jpg", alt: "Luke Schoen", width: "55", height: "55") %>
+</div>
+
+<div class="social-media">
+
+  <a href="https://plus.google.com/u/0/103113786777929863499" target="_blank" class="google">google</a>
+  <a href="https://twitter.com/ltfschoen" target="_blank" class="twitter">twitter</a>
+  <a href="http://www.linkedin.com/in/ltfschoen" target="_blank" class="linkedin">linkedin</a>
+  <a href="https://github.com/ltfschoen" target="_blank" class="github">github</a>
+  <a href="http://lukeschoen.blogspot.com.au/" target="_blank" class="blogspot">blogspot</a>
+</div>
+
+<div id="periods" class="clear">
+  <a href="#" class="button">
+      <span class="arrow">
+          <%= image_tag("_minus.jpg", alt: "-", width: "55", height: "55") %>
+      </span>
+      <span class="arrow" style="display: none;">
+          <%= image_tag("_plus.jpg", alt: "+", width: "55", height: "55") %>
+      </span>
+  </a>
+</div>
+
+<!-- 
+  HTML5 Drag and drop (DnD) event based JavaScript API.
+  Draggable content has attribute set to 'true'.
+  CSS3 used to improve markup of draggables.
+  Listeners to process drag/drop event model.
+  DnD sequence has event handlers applied to columns.
+-->
+<div id="columns" class="clear">
+
+  <a href="https://play2lead.co/" target="new"><div class="column play" draggable="true"><header>Play2Lead.co</header></div></a>
+  <a href="https://www.youtube.com/watch?v=FVQLZXlIS_Q" target="new"><div class="column keepal" draggable="true"><header>Keepal</header></div></a>
+  <a href="https://www.youtube.com/watch?v=YQeuJuQxZn4" target="new"><div class="column edumal" draggable="true"><header>Edumal.Tv</header></div></a>
+  <a href="https://www.youtube.com/watch?v=RjGY3d_2ewI" target="new"><div class="column sprite" draggable="true"><header>PaddleGame</header></div></a>
+  <a href="http://wdi3.herokuapp.com" target="new"><div class="column codium" draggable="true"><header>Codium</header></div></a>
+  <a href="http://littlehumans.herokuapp.com" target="new"><div class="column little" draggable="true"><header>Littlehumans</header></div></a>
+  <a href="http://rickrampage.herokuapp.com" target="new"><div class="column rick" draggable="true"><header>RickRampage</header></div></a>
+  <a href="https://www.youtube.com/watch?v=bHuV2YY5Mn8" target="new"><div class="column umby" draggable="true"><header>UmbyRacks</header></div></a>
+  <a href="http://trendmyhunch.herokuapp.com" target="new"><div class="column trend" draggable="true"><header>TrendMyHunch</header></div></a>
+  <!-- <div class="column hangman" draggable="true"><header>HangManGame</header></div> -->
+  <!-- <div class="column blog" draggable="true"><header>CrudBlog</header></div> -->
+  <a href="/assets/apollo.jpg" target="new"><div class="column apollo" draggable="true"><header>ApolloSecurity</header></div></a>
+  <a href="/assets/mallard.jpg" target="new"><div class="column mallard" draggable="true"><header>Mallard4Bligh</header></div></a>
+  <a href="/assets/iphi.jpg" target="new"><div class="column iphi" draggable="true"><header>IphiVonMoock</header></div></a>
+  <a href="/assets/ozejobz.jpg" target="new"><div class="column ozejobz" draggable="true"><header>Ozejobz</header></div></a>
+  <a href="/assets/fitnetusa.jpg" target="new"><div class="column fitnetusa" draggable="true"><header>FitNetUSA</header></div></a>
+  <div class="column blur super" draggable="true"><header>SuperTraining</header></div>
+  <!-- <div class="column blur hilton" draggable="true"><header>Hilton</header></div> -->
+  <!-- <a href="/assets/schoen.png" target="new"><div class="column schoen" draggable="true"><header>SchoenRomCd</header></div></a> -->
+  <!-- <div class="column blur mcbain" draggable="true"><header>McBain</header></div> -->
+  <!-- <a href="/assets/wc.jpg" target="new"><div class="column wc" draggable="true"><header>WCentral</header></div></a> -->
+  
+</div>
+<!-- <div id="columns">
+  <div class="hole"><header>O</header></div>
+</div> -->
+
+<script>
+  
+  $(document).ready(function(){
+    $("#columns").show();
+
+    $(".button").click(function () {
+      $(this).children(".arrow").toggle();
+      $("#columns").toggle();
+            return false;
+    });
+  });
+
+  // Feature detection using Modernizr library to check for DnD
+  if (Modernizr.draganddrop) {
+    // Browser supports HTML5 DnD.
+  } else {
+    // Fallback to a library solution.
+  }
+
+  // DataTransfer property holds data sent in drag action
+  var dragSrcEl = null;
+
+  function handleDragStart(e) {
+    this.style.opacity = '0.4';  // this / e.target is source node.
+    
+    dragSrcEl = this;
+
+    e.dataTransfer.effectAllowed = 'move';
+    // set object content to mimetype
+    // data payload of source column HTML passed as args
+    e.dataTransfer.setData('text/html', this.innerHTML);
+  }
+
+  function handleDragOver(e) {
+    if (this.innerHTML) { // somehow allows links to appear
+      if (e.preventDefault) {
+        e.preventDefault(); // allows dropping instead of link
+      }
+
+      e.dataTransfer.dropEffect = 'move';  // see DataTransfer object
+      return false;
+    }
+  }
+
+  function handleDragEnter(e) {
+    // this / e.target is current hover target.
+    this.classList.add('over');
+  }
+
+  function handleDragLeave(e) {
+    // this / e.target is previous target element.
+    this.classList.remove('over');  
+  }
+
+  function handleDrop(e) {
+    // this / e.target is current target element.
+    if (e.stopPropagation) {
+      e.stopPropagation(); // stops browser from redirecting.
+    }
+
+    // no action if dropping same column being dragged
+    if (dragSrcEl != this) {
+      // set source column HTML to HTML of column we dropped on
+      dragSrcEl.innerHTML = this.innerHTML;
+      this.innerHTML = e.dataTransfer.getData('text/html');
+    }
+
+    // see DataTransfer object.
+    return false;
+  }
+
+  function handleDragEnd(e) {
+    // this/e.target is the source node.
+    [].forEach.call(cols, function (col) {
+      col.classList.remove('over');
+    });
+  }
+
+  var cols = document.querySelectorAll('#columns .column');
+  [].forEach.call(cols, function(col) {
+    col.addEventListener('dragstart', handleDragStart, false);
+    col.addEventListener('dragenter', handleDragEnter, false);
+    col.addEventListener('dragover', handleDragOver, false);
+    col.addEventListener('dragleave', handleDragLeave, false);
+    col.addEventListener('drop', handleDrop, false);
+    col.addEventListener('dragend', handleDragEnd, false);
+  });
+
+</script>

@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
+# http://start.jcolemorrison.com/setting-up-an-angularjs-and-rails-4-1-project/
+gem 'bower-rails'
+gem 'angular-rails-templates'
+
 group :production do
   # gem 'bcrypt', '~> 3.1.7' # ActiveModel has_secure_password
   gem 'coffee-rails', '~> 4.0.0' # CoffeeScript for .js.coffee assets and views
@@ -18,7 +22,9 @@ group :production do
   # gem 'unicorn' # unicorn as the app server
 end
 
-group :development, :production do
+
+
+group :development, :test, :production do
   # called from application.html.erb
   gem "bootstrap-sass"
   gem 'jquery-rails' # jQuery JS library
@@ -26,6 +32,7 @@ group :development, :production do
   gem 'sass-rails', '~> 4.0.3' # SCSS for stylesheets 
   gem 'turbolinks' # faster links
   gem "underscore-rails"
+  gem 'autoprefixer-rails' # use with Bootstrap to add browser vendor prefixes automatically
 end
 
 group :test do
