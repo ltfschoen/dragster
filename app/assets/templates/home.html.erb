@@ -5,23 +5,6 @@
     </li>
 </ul> -->
 
-<% if Rails.env.production? %>
-
-<div data-ads>
-  <!-- adsense -->
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <!-- lukeschoen.herokuapp.com-bottom-ad -->
-  <ins class="adsbygoogle"
-     style="display:inline-block;width:320px;height:50px"
-     data-ad-client="ca-pub-3774443777675026"
-     data-ad-slot="9950770596"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
-
-<% end %>
-
 <div ng-controller="HomeCtrl">
 </div>
 
@@ -84,6 +67,24 @@
 <!-- <div id="columns">
   <div class="hole"><header>O</header></div>
 </div> -->
+
+<!-- ADSENSE DISABLED AS ERRONEOUS -->
+<%# if Rails.env.production? %>
+
+<!-- adsense -->
+<!-- lukeschoen.herokuapp.com-bottom-ad -->
+<!-- <div data-ads>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:50px"
+     data-ad-client="ca-pub-3774443777675026"
+     data-ad-slot="9950770596"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div> -->
+
+<%# end %>
 
 <script>
   
