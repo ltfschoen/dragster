@@ -1,4 +1,4 @@
 angular.module('DragsterApp')
-    .controller('HomeCtrl', function ($scope) {
+    .controller('HomeCtrl', ['$scope', function ($scope) {
         $scope.things = ['Test', 'Luke'];
-    });
+    }]);
