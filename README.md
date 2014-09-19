@@ -10,6 +10,6 @@ Testing
 
 Production
 ----------
-http://dragster.herokuapp.com/
+http://lukeschoen.herokuapp.com/
 
 
