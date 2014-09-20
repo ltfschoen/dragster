@@ -22,33 +22,20 @@
   </a>
 </div>
 
-<!-- 
-  HTML5 Drag and drop (DnD) event based JavaScript API.
-  Draggable content has attribute set to 'true'.
-  CSS3 used to improve markup of draggables.
-  Listeners to process drag/drop event model.
-  DnD sequence has event handlers applied to columns.
--->
 <div id="columns">
-
-  <a href="https://play2lead.co/" target="new"><div class="column play" draggable="true"><header>Play2Lead.co</header></div></a>
-  <a href="https://www.youtube.com/watch?v=FVQLZXlIS_Q" target="new"><div class="column keepal" draggable="true"><header>Keepal</header></div></a>
-  <a href="https://www.youtube.com/watch?v=YQeuJuQxZn4" target="new"><div class="column edumal" draggable="true"><header>Edumal.Tv</header></div></a>
-  <a href="https://www.youtube.com/watch?v=RjGY3d_2ewI" target="new"><div class="column sprite" draggable="true"><header>PaddleGame</header></div></a>
-  <a href="http://wdi3.herokuapp.com" target="new"><div class="column codium" draggable="true"><header>Codium</header></div></a>
-  <a href="http://littlehumans.herokuapp.com" target="new"><div class="column little" draggable="true"><header>Littlehumans</header></div></a>
-  <a href="http://rickrampage.herokuapp.com" target="new"><div class="column rick" draggable="true"><header>RickRampage</header></div></a>
-  <a href="https://www.youtube.com/watch?v=bHuV2YY5Mn8" target="new"><div class="column umby" draggable="true"><header>UmbyRacks</header></div></a>
-  <a href="http://trendmyhunch.herokuapp.com" target="new"><div class="column trend" draggable="true"><header>TrendMyHunch</header></div></a>
-  <!-- <div class="column hangman" draggable="true"><header>HangManGame</header></div> -->
-  <!-- <div class="column blog" draggable="true"><header>CrudBlog</header></div> -->
-  <a href="/assets/apollo.jpg" target="new"><div class="column apollo" draggable="true"><header>ApolloSecurity</header></div></a>
-  <a href="/assets/mallard.jpg" target="new"><div class="column mallard" draggable="true"><header>Mallard4Bligh</header></div></a>
-  <a href="/assets/iphi.jpg" target="new"><div class="column iphi" draggable="true"><header>IphiVonMoock</header></div></a>
-  <a href="/assets/ozejobz.jpg" target="new"><div class="column ozejobz" draggable="true"><header>Ozejobz</header></div></a>
-  <a href="/assets/fitnetusa.jpg" target="new"><div class="column fitnetusa" draggable="true"><header>FitNetUSA</header></div></a>
-  <div class="column blur super" draggable="true"><header>SuperTraining</header></div>
-  
+  <ul ng-repeat="website in websites">
+    <!-- hood refers to the black header colour -->
+    <li ng-mouseover="disableHood(website)" ng-mouseleave="enableHood(website)">
+      <!-- <span ng-show="website.editable"><header>{{website.id}}</header></span> -->
+      <!-- list of website buttons -->
+      <a id="{{website.id}}" ng-href="{{website.url}}" target="new">
+        <!-- class id looks up CSS to determines thumbnail to be shown -->
+        <div class="column {{website.id}}">
+          <header>{{website.name}}</header>
+        </div>
+      </a>
+    </li>
+  </ul>
 </div>
 
 <!-- START ADSENSE - ADSENSE TEMPORARILY DISABLED AS ERRONEOUS -->
