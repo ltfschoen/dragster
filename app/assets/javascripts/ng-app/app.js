@@ -2,11 +2,12 @@
 
   'use strict';
 
-  var dragsterApp = angular.module('DragsterApp', [
+  var dragsterApp = angular.module('dragsterApp', [
     'ngRoute',
     'templates',
     'dragsterControllers',
-    'dragsterDirectives'
+    'dragsterDirectives',
+    'dragsterServices'
   ]);
   
   dragsterApp.config(['$routeProvider', '$locationProvider', 
