@@ -15,6 +15,9 @@
         .when('/', {
           templateUrl: 'home.html',
           controller: 'HomeCtrl'
+        })
+        .otherwise({
+          redirectTo: '/'
         });
       $locationProvider.html5Mode(true);
     }

@@ -108,84 +108,59 @@ font-size: 22px;
   vertical-align: top;
 }
 
-.social-media a {
-  display: block;
-  width: 65px;
-  height: 65px;
-  background-image: image-url('social-media-sprite.png');
-  float: left;
-  
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.social-media a.behance {
-  background-position: 0px 0px;
-}
-
-.social-media a.twitter {
-  background-position: -65px 0px;
-}
-
-.social-media a.linkedin {
-  background-position: -195px 0px;
-}
-
-.social-media a.github {
-  background-position: -260px 0px;
-}
-
-.social-media a.nm {
-  background-position: -325px 0px;
-}
-
-.social-media a.blogspot {
-  background-position: -390px 0px;
-}
-
-.social-media a.google {
-  background-position: -455px 0px;
-}
-
-.social-media a.codepen {
-  background-position: -520px 0px;
-}
-
-.social-media a.behance:hover {
-  background-position: 0px -65px;
-}
-
-.social-media a.twitter:hover {
-  background-position: -65px -65px;
-}
-
-.social-media a.linkedin:hover {
-  background-position: -195px -65px;
-}
-
-.social-media a.github:hover {
-  background-position: -260px -65px;
-}
-
-.social-media a.nm:hover {
-  background-position: -325px -65px;
-}
-
-.social-media a.blogspot:hover {
-  background-position: -390px -65px;
-}
-
-.social-media a.google:hover {
-  background-position: -455px -65px;
-}
-
-.social-media a.codepen:hover {
-  background-position: -520px -65px;
-}
-
-.clear {
-  clear: both;
+.social-media {
+  a {
+    display: block;
+    width: 65px;
+    height: 65px;
+    background-image: image-url('social-media-sprite.png');
+    float: left;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  a.behance {
+    background-position: 0px 0px;
+  }
+  a.twitter {
+    background-position: -65px 0px;
+  }
+  a.linkedin {
+    background-position: -195px 0px;
+  }
+  a.github {
+    background-position: -260px 0px;
+  }
+  a.blogspot {
+    background-position: -390px 0px;
+  }
+  a.google {
+    background-position: -455px 0px;
+  }
+  a.codepen {
+    background-position: -520px 0px;
+  }
+  a.behance:hover {
+    background-position: 0px -65px;
+  }
+  a.twitter:hover {
+    background-position: -65px -65px;
+  }
+  a.linkedin:hover {
+    background-position: -195px -65px;
+  }
+  a.github:hover {
+    background-position: -260px -65px;
+  }
+  a.blogspot:hover {
+    background-position: -390px -65px;
+  }
+  a.google:hover {
+    background-position: -455px -65px;
+  }
+  a.codepen:hover {
+    background-position: -520px -65px;
+  }
 }
 
 #periods {
@@ -194,6 +169,10 @@ font-size: 22px;
   margin-top: 5px;
   zoom: 1.03;
   vertical-align: top;
+}
+
+.clear {
+  clear: both;
 }
 
 #logo {
