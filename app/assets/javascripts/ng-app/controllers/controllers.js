@@ -8,14 +8,6 @@
     $scope.websites = Websites.query();
     console.log($scope.websites);
 
-    $scope.enableHood = function(item){
-      item.hooded = true;
-    };
-
-    $scope.disableEdit = function(item){
-      item.unhooded = false;
-    };
-
   }]);
 
 })();
