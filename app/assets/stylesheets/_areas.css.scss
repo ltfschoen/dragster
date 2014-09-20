@@ -9,96 +9,6 @@
   -khtml-user-drag: element;
   -webkit-user-drag: element;
 }
-.column {
-  height: 150px;
-  width: 150px;
-  float: left;
-  margin: 7px;
-  border: 2px solid #666666;
-  background-color: #ccc;
-  margin-right: 5px;
-  -webkit-border-radius: 150px;
-  -ms-border-radius: 150px;
-  -moz-border-radius: 150px;
-  border-radius: 150px;
-  -webkit-box-shadow: inset 0 0 3px #000;
-  -ms-box-shadow: inset 0 0 3px #000;
-  box-shadow: inset 0 0 3px #000;
-  text-align: center;
-  cursor: pointer;
-}
-.column header {
-  font-family: 'Dosis', sans-serif;
-  color: #fff;
-  text-shadow: #000 0 1px;
-  box-shadow: 5px;
-  padding: 25px;
-  background: -moz-linear-gradient(left center, rgb(0,0,0), rgb(79,79,79), rgb(21,21,21));
-  background: -webkit-gradient(linear, left top, right top,
-                               color-stop(0, rgb(0,0,0)),
-                               color-stop(0.50, rgb(79,79,79)),
-                               color-stop(1, rgb(21,21,21)));
-  background: -webkit-linear-gradient(left center, rgb(0,0,0), rgb(79,79,79), rgb(21,21,21));
-  background: -ms-linear-gradient(left center, rgb(0,0,0), rgb(79,79,79), rgb(21,21,21));
-  border-bottom: 1px solid #ddd;
-  -webkit-border-top-left-radius: 150px;
-  -moz-border-radius-topleft: 150px;
-  -ms-border-radius-topleft: 150px;
-  border-top-left-radius: 150px;
-  -webkit-border-top-right-radius: 150px;
-  -ms-border-top-right-radius: 150px;
-  -moz-border-radius-topright: 150px;
-  border-top-right-radius: 150px;
-}
-// .hole {
-//   clear: left;
-//   text-align: center;
-//   height: 150px;
-//   width: 150px;
-//   background-color: #ddcaaa;
-//   border-color: #ddcaaa;
-//   -webkit-border-radius: 80px;
-//   -ms-border-radius: 80px;
-//   -moz-border-radius: 80px;
-//   border-radius: 80px;
-// }
-// column during hover becomes dashed. indicative of drop target
-.column.over {
-  border: 2px dashed #000;
-}
-// https://developer.mozilla.org/en-US/docs/Web/CSS/background-size
-.wc { background-image: url('wc.jpg'); background-size: cover; }
-.mcbain { background-image: url('mcbain.png'); background-size: cover; }
-.schoen { background-image: url('schoen.png'); background-size: cover; }
-.hilton { background-image: url('hilton.jpg'); background-size: cover; }
-.fitnetusa { background-image: url('fitnetusa_small.jpg'); background-size: cover; }
-.ozejobz { background-image: url('ozejobz_small.jpg'); background-size: cover; }
-.super { background-image: url('super_small.jpg'); background-size: cover; }
-.iphi { background-image: url('iphi_small.jpg'); background-size: cover; }
-.mallard { background-image: url('mallard_small.jpg'); background-size: cover; }
-.apollo { background-image: url('apollo_small.jpg'); background-size: cover; }
-.blog { background-image: url('blog_small.jpg'); background-size: cover; }
-.hangman { background-image: url('hangman_small.jpg'); background-size: cover; }
-.trend { background-image: url('trend_small.jpg'); background-size: cover; }
-.umby { background-image: url('umby_small.jpg'); background-size: cover; }
-.rick { background-image: url('rick_small.jpg'); background-size: cover; }
-.little { background-image: url('little_small.jpg'); background-size: cover; }
-.codium { background-image: url('codium_small.jpg'); background-size: cover; }
-.sprite { background-image: url('sprite_small.jpg'); background-size: cover; }
-.edumal { background-image: url('edumal_small.jpg'); background-size: cover; }
-.keepal { background-image: url('keepal2_small.jpg'); background-size: cover; }
-.play { background-image: url('play_small.jpg'); background-size: cover; }
-
-.blur {
-  opacity:0.5;
-  filter:alpha(opacity=30); /* For IE8 and earlier */
-}
-
-i {
-margin: 10px;
-vertical-align: center;
-font-size: 22px;
-}
 
 #social-media {
   display: inline-block;
@@ -107,79 +17,139 @@ font-size: 22px;
   /*position: relative;*/
   vertical-align: top;
 }
-
-.social-media {
-  a {
-    display: block;
-    width: 65px;
-    height: 65px;
-    background-image: image-url('social-media-sprite.png');
+body {
+  // luke logo
+  #logo {
+    display: inline-block;
     float: left;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+    margin-left: 4px;
+    margin-top: 5px;
+    zoom: 1.03;
+    vertical-align: top;
+    clear: both;
   }
-  a.behance {
-    background-position: 0px 0px;
+  // social media buttons
+  .social-media {
+    a {
+      display: block;
+      width: 65px;
+      height: 65px;
+      background-image: image-url('social-media-sprite.png');
+      float: left;
+      text-indent: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    a.behance { background-position: 0px 0px; }
+    a.twitter { background-position: -65px 0px; }
+    a.linkedin { background-position: -195px 0px; }
+    a.github { background-position: -260px 0px; }
+    a.blogspot { background-position: -390px 0px; }
+    a.google { background-position: -455px 0px; }
+    a.codepen { background-position: -520px 0px; }
+    a.behance:hover { background-position: 0px -65px; }
+    a.twitter:hover { background-position: -65px -65px; }
+    a.linkedin:hover { background-position: -195px -65px; }
+    a.github:hover { background-position: -260px -65px; }
+    a.blogspot:hover { background-position: -390px -65px; }
+    a.google:hover { background-position: -455px -65px; }
+    a.codepen:hover { background-position: -520px -65px; }
+  } // end .social-media
+  // individual apps circles
+  .column {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    float: left;
+    margin: 7px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #ccc;
+    border: 2px solid #666666;
+    // fit background screenshot in app circle
+    background-size: cover;
+    // border-radius
+    -webkit-border-radius: 150px;
+    -ms-border-radius: 150px;
+    -moz-border-radius: 150px;
+    border-radius: 150px;
+    // box-shadow
+    -webkit-box-shadow: inset 0 0 3px #000;
+    -ms-box-shadow: inset 0 0 3px #000;
+    box-shadow: inset 0 0 3px #000;
+    // column hover dashed. indicative of drop target
+    .over {
+      border: 2px dashed #000;
+    }
+    // column header
+    header {
+      // text
+      font-family: 'Dosis', sans-serif;
+      color: #fff;
+      text-shadow: #000 0 1px;
+      box-shadow: 5px;
+      // cell
+      padding: 25px;
+      // background
+      background: -moz-linear-gradient(left center, rgb(0,0,0), rgb(79,79,79), rgb(21,21,21));
+      background: -webkit-gradient(linear, left top, right top,
+       color-stop(0, rgb(0,0,0)),
+       color-stop(0.50, rgb(79,79,79)),
+       color-stop(1, rgb(21,21,21)));
+      background: -webkit-linear-gradient(left center, rgb(0,0,0), rgb(79,79,79), rgb(21,21,21));
+      background: -ms-linear-gradient(left center, rgb(0,0,0), rgb(79,79,79), rgb(21,21,21));
+      // border-top-left
+      -webkit-border-top-left-radius: 150px;
+      -moz-border-radius-topleft: 150px;
+      -ms-border-radius-topleft: 150px;
+      border-top-left-radius: 150px;
+      // border-top-right
+      -webkit-border-top-right-radius: 150px;
+      -ms-border-top-right-radius: 150px;
+      -moz-border-radius-topright: 150px;
+      border-top-right-radius: 150px;
+      // border-bottom
+      border-bottom: 1px solid #ddd;
+    } // end .column.header
+  } // end .column
+  // blur individual app thumbnails
+  .blur {
+    opacity:0.5;
+    filter:alpha(opacity=30); /* For IE8 and earlier */
   }
-  a.twitter {
-    background-position: -65px 0px;
+  // individual app thumbnails
+  .wc { background-image: url('wc.jpg'); }
+  .mcbain { background-image: url('mcbain.png'); }
+  .schoen { background-image: url('schoen.png'); }
+  .hilton { background-image: url('hilton.jpg'); }
+  .fitnetusa { background-image: url('fitnetusa_small.jpg'); }
+  .ozejobz { background-image: url('ozejobz_small.jpg'); }
+  .super { background-image: url('super_small.jpg'); }
+  .iphi { background-image: url('iphi_small.jpg'); }
+  .mallard { background-image: url('mallard_small.jpg'); }
+  .apollo { background-image: url('apollo_small.jpg'); }
+  .blog { background-image: url('blog_small.jpg'); }
+  .hangman { background-image: url('hangman_small.jpg'); }
+  .trend { background-image: url('trend_small.jpg'); }
+  .umby { background-image: url('umby_small.jpg'); }
+  .rick { background-image: url('rick_small.jpg'); }
+  .little { background-image: url('little_small.jpg'); }
+  .codium { background-image: url('codium_small.jpg'); }
+  .sprite { background-image: url('sprite_small.jpg'); }
+  .edumal { background-image: url('edumal_small.jpg'); }
+  .keepal { background-image: url('keepal2_small.jpg'); }
+  .play { background-image: url('play_small.jpg'); }
+  // + / - buttons
+  #periods {
+    display: inline-block;
+    margin-left: 4px;
+    margin-top: 5px;
+    zoom: 1.03;
+    vertical-align: top;
+    clear: both;
+  } // end #periods
+  // list of apps
+  #columns {
+    clear: both;
   }
-  a.linkedin {
-    background-position: -195px 0px;
-  }
-  a.github {
-    background-position: -260px 0px;
-  }
-  a.blogspot {
-    background-position: -390px 0px;
-  }
-  a.google {
-    background-position: -455px 0px;
-  }
-  a.codepen {
-    background-position: -520px 0px;
-  }
-  a.behance:hover {
-    background-position: 0px -65px;
-  }
-  a.twitter:hover {
-    background-position: -65px -65px;
-  }
-  a.linkedin:hover {
-    background-position: -195px -65px;
-  }
-  a.github:hover {
-    background-position: -260px -65px;
-  }
-  a.blogspot:hover {
-    background-position: -390px -65px;
-  }
-  a.google:hover {
-    background-position: -455px -65px;
-  }
-  a.codepen:hover {
-    background-position: -520px -65px;
-  }
-}
-
-#periods {
-  display: inline-block;
-  margin-left: 4px;
-  margin-top: 5px;
-  zoom: 1.03;
-  vertical-align: top;
-}
-
-.clear {
-  clear: both;
-}
-
-#logo {
-  display: inline-block;
-  float: left;
-  margin-left: 4px;
-  margin-top: 5px;
-  zoom: 1.03;
-  vertical-align: top;
 }

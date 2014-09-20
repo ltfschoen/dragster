@@ -18,6 +18,7 @@
 //= require modernizr-latest-2.8.3
 //= require angular
 //= require angular-route
+//= require angular-resource
 //= require angular-rails-templates
 //= require_tree ../templates
 //= require_tree .

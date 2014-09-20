@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="DragsterApp">
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="dragsterApp">
 <head>
   <title>DragsterApp</title>
   <meta name="viewport" content="width=device-width">
@@ -10,7 +10,7 @@
   <%= javascript_include_tag 'ng-app/controllers/HomeCtrl', type: 'text/javascript' %>
   <%= csrf_meta_tags %>
 </head>
-<body >
+<body ng-controller="HomeCtrl">
 
 <!-- temporarily removed devise login buttons and alerts and notices. restore via git -->
 <div id="container">

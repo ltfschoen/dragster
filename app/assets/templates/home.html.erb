@@ -1,14 +1,4 @@
-<!-- <h1>Home View</h1>
-<ul>
-    <li ng-repeat="thing in things">
-        {{thing}}
-    </li>
-</ul> -->
-
-<div ng-controller="HomeCtrl">
-</div>
-
-<div id="logo" class="clear">
+<div id="logo">
   <%= image_tag("ls4.jpg", alt: "Luke Schoen", width: "55", height: "55") %>
 </div>
 
@@ -21,7 +11,7 @@
   <a href="http://lukeschoen.blogspot.com.au/" target="_blank" class="blogspot">blogspot</a>
 </div>
 
-<div id="periods" class="clear">
+<div id="periods">
   <a href="#" class="button">
       <span class="arrow">
           <%= image_tag("_minus.jpg", alt: "-", width: "55", height: "55") %>
@@ -39,7 +29,7 @@
   Listeners to process drag/drop event model.
   DnD sequence has event handlers applied to columns.
 -->
-<div id="columns" class="clear">
+<div id="columns">
 
   <a href="https://play2lead.co/" target="new"><div class="column play" draggable="true"><header>Play2Lead.co</header></div></a>
   <a href="https://www.youtube.com/watch?v=FVQLZXlIS_Q" target="new"><div class="column keepal" draggable="true"><header>Keepal</header></div></a>
@@ -58,15 +48,8 @@
   <a href="/assets/ozejobz.jpg" target="new"><div class="column ozejobz" draggable="true"><header>Ozejobz</header></div></a>
   <a href="/assets/fitnetusa.jpg" target="new"><div class="column fitnetusa" draggable="true"><header>FitNetUSA</header></div></a>
   <div class="column blur super" draggable="true"><header>SuperTraining</header></div>
-  <!-- <div class="column blur hilton" draggable="true"><header>Hilton</header></div> -->
-  <!-- <a href="/assets/schoen.png" target="new"><div class="column schoen" draggable="true"><header>SchoenRomCd</header></div></a> -->
-  <!-- <div class="column blur mcbain" draggable="true"><header>McBain</header></div> -->
-  <!-- <a href="/assets/wc.jpg" target="new"><div class="column wc" draggable="true"><header>WCentral</header></div></a> -->
   
 </div>
-<!-- <div id="columns">
-  <div class="hole"><header>O</header></div>
-</div> -->
 
 <!-- START ADSENSE - ADSENSE TEMPORARILY DISABLED AS ERRONEOUS -->
 <%# if Rails.env.production? %>
