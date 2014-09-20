@@ -1,0 +1,18 @@
+// http://jsonlint.com/
+{
+  "name": "Apollo Security Australia",
+  "description": "Hello is a greeting",
+  "dates": {
+    "start": "2000",
+    "end": "2006"
+  },
+  "website": "",
+  "presentations": "",
+  "screenshots": [
+    "/assets/apollo.jpg"
+  ],
+  "skills": {
+    "business": "XMind",
+    "technology": "AngularJS"
+  }
+}
