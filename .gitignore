@@ -90,4 +90,4 @@ config/initializers/secret_token.rb
 dump
 .powenv
 .powrc
-/lib/assets/bower_components/*
+/lib/assets/bower_components
