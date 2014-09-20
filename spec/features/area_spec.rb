@@ -11,7 +11,7 @@ describe 'area page', type: :feature, js: true do
 
   it 'should display area message' do
     visit "#{hostname}"
-    expect(page).to have_content 'Area'
+    expect(page).to have_content 'google'
   end
 
 end

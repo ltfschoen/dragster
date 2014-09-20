@@ -1,0 +1,11 @@
+<!-- Cross Domain Policy - AdSense -->
+<!-- http://curtismorley.com/2007/09/01/flash-flex-tutorial-how-to-create-a-crossdomainxml-file/ -->
+<!-- https://support.google.com/richmedia/answer/156396?hl=en -->
+
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy 
+  SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+  <allow-access-from domain="*.doubleclick.net" secure="true"/>
+  <allow-access-from domain="*.doubleclick.net" secure="false"/>
+</cross-domain-policy>

@@ -14,6 +14,7 @@
  *= require_self
  */
 
+ @import "bootstrap-sprockets";
  @import "bootstrap";
 
  @import 'areas'; /* imports SCSS partial _areas.css.scss */
