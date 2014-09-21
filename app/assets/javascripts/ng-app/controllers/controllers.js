@@ -4,10 +4,10 @@
 
   var dragsterControllers = angular.module('dragsterControllers', []);
 
-  dragsterControllers.controller('HomeCtrl', ['$scope', function($scope) {
+  dragsterControllers.controller('PortfolioController', ['$scope', function($scope) {
     // $scope.websites = Websites.query(); // fetch from JSON file
-    $scope.websites = websites; // fetch from variable
-    console.log($scope.websites);
+    this.websites = websites; // fetch from variable
+    console.log(this.websites);
 
   }]);
 

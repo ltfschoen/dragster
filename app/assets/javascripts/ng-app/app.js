@@ -6,8 +6,7 @@
     'ngRoute',
     'templates',
     'dragsterControllers',
-    'dragsterDirectives',
-    'dragsterServices'
+    'dragsterDirectives'
   ]);
   
   dragsterApp.config(['$routeProvider', '$locationProvider', 
@@ -15,7 +14,7 @@
       $routeProvider
         .when('/', {
           templateUrl: 'home.html',
-          controller: 'HomeCtrl'
+          controller: 'PortfolioController'
         })
         .otherwise({
           redirectTo: '/'
