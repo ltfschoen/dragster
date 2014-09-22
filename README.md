@@ -1,6 +1,6 @@
 About Dragster
 ======
-Portfolio of some web design and development and startup projects by Luke Schoen from 1999 to present.
+Portfolio of some web design and development and startup projects contributed to by Luke Schoen from 1999 to present.
 
 Testing
 -------
