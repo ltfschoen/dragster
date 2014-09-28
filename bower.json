@@ -1,5 +1,5 @@
-// Note: 'rake bower:install'
 {
+  "name": "dragster",
   "lib": {
     "name": "bower-rails generated lib assets",
     "dependencies": {
@@ -8,13 +8,13 @@
       "angular-resource": "latest",
       "angular-animate": "latest",
       "angular-mocks": "latest",
-      "angular-scenario": "latest"
+      "angular-scenario": "latest",
+      "bounce.js": "latest"
     }
   },
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
-      //
     }
   }
 }

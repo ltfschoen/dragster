@@ -20,5 +20,6 @@
 //= require angular-route
 //= require angular-resource
 //= require angular-rails-templates
+//= require bounce.js
 //= require_tree ../templates
 //= require_tree .
