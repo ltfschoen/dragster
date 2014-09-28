@@ -7,7 +7,6 @@
   dragsterControllers.controller('PortfolioController', ['$scope', function($scope) {
     // $scope.websites = Websites.query(); // fetch from JSON file
     this.websites = websites; // fetch from variable
-    console.log(this.websites);
 
   }]);
 

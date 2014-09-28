@@ -12,4 +12,6 @@ Production
 ----------
 http://lukeschoen.herokuapp.com/
 
-
+Note: 
+----------
+'rake bower:install'
