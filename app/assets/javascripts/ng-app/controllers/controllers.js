@@ -14,7 +14,7 @@
   var websites = [
     {
       "id": "engenya",
-      "name": "Engenya GmbH",
+      "name": "Competition Entry",
       "url": "/assets/engenya.jpg",
       "dates": {
         "start": "",
@@ -22,9 +22,9 @@
       }
     },
     {
-      "id": "play",
-      "name": "Play2Lead.co",
-      "url": "https://play2lead.co/",
+      "id": "confidential",
+      "name": "Confidential",
+      "url": "#",
       "dates": {
         "start": "2014",
         "end": "2014"
