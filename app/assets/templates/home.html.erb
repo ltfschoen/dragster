@@ -35,7 +35,6 @@
         <div class="column {{website.id}}">
           <header>{{website.name}}</header>
         </div>
-        <div id="explosion"></div>
       </a>
     </li>
   </ul>
@@ -75,7 +74,7 @@
     var offsets;
 
     /* anonymous function that returns value */
-    (function(granularity, depth) {
+    (function() {
 
       /*  Function object prototype property given
           method to declare new methods for defined class */
@@ -84,10 +83,13 @@
         this.prototype[name] = fn;
       };
 
+      /* unused variables */
       var width = 800;
       var height = 600;
+      var granularity = 10;
+      var depth = 10;
       
-      /*  function defined within closure accessible from outside */
+      /*  function dfn in closure accessible from outside */
       offsets = function() {
         console.log("in offsets");
         return width * height;
@@ -95,51 +97,55 @@
 
       showError = function(msg) {
         console.log("in showError");
+        showError.qty = 0;
         showError.qty++;
-        alert("msg+ showError.qty is: " + msg + showError.qty);
+        console.log("showError.qty is: " + showError.qty + " " + msg);
       };
+      showError("(test error)");
+      showError.qty = 0;
+      console.log("showError.qty is: " + showError.qty + " " + "(attribute updated from outside function)");
 
       /*  define class Anim */
       var Anim = function(sizeStart, sizeFinish) {
-        console.log("in Anim");
-        this.sizeStart;
-        this.sizeFinish;
+        console.log("in Anim with: " + sizeStart + " " + sizeFinish);
+        this.sizeStart = sizeStart;
+        this.sizeFinish = sizeFinish;
       };
 
-      /*  convenience methods to store and act on internal state 
+      /*  methods store and act on internal state 
           with name of new method and associated function */
-      Anim.method('getSizeStart', function() {
-        console.log("in getSizeStart");
-        return this.sizeStart;
+      Anim.prototype = {
+        getSizeStart: function() {
+          console.log("in getSizeStart");
+          return this.sizeStart;
+        },
+        getSizeFinish: function() {
+          console.log("in getSizeFinish");
+          return this.sizeFinish;
+        }
+      };
 
-      });
-      Anim.method('getSizeFinish', function() {
-        console.log("in getSizeFinish");
-        return this.sizeFinish;
-      });
-      Anim.method('getSizeChange', function() {
+      var start = Anim.prototype.getSizeStart();
+      var finish = Anim.prototype.getSizeFinish();
+
+      /*  modify the class */
+      Anim.prototype.getSizeChange = function() {
         console.log("in getSizeChange");
-        return this.sizeFinish - this.sizeStart;
-      });
+        return this.getSizeFinish() - this.getSizeStart();
+      };
+
+      var change = Anim.prototype.getSizeChange();
 
       //  instantiate class with (sizeStart, sizeFinish)
       var warp = new Anim(50, 100);
-
-      //  modify specific instance of class named 'warp' only
-      warp.displayChange = function() {
-        console.log("in displayChange");
-        alert(this.getSizeChange());
-        $("#explosion").innerHTML(this.getSizeChange());
-      }; 
-
-    // (granularity, depth)
+      console.log("warp start is: " + warp.sizeStart);
+      console.log("warp finish is: " + warp.sizeFinish);
+  
     })(); 
 
     /*  access internal variables despite execution outside
         anonymous function */
     offsets();
-
-    showError.qty = 0;
 
   });
 
