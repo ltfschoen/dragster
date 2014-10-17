@@ -201,7 +201,7 @@
 
       // Interface instance object created (for set of methods deemed as necesary)
       //  - Name of interface: 'AnimSet'
-      //  - Required methods: 'getDate', 'getResults'
+      //  - Required methods: 'getSizeStart', 'getSizeFinish', 'getAnimDate', 'getAnimKind' 
       // Note: Returns error if 
       var AnimSet = new Interface('AnimSet', ['getSizeStart', 'getSizeFinish', 'getAnimDate', 'getAnimKind']);
       console.log("AnimSet is: " + AnimSet);
@@ -216,7 +216,6 @@
         // }
 
         /* Accuracy check (ensure required methods implemented) */
-
         console.log("in AnimFormatter method with:");
         console.log(" - animObject: " + animObject);
 
