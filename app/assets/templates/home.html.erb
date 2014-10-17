@@ -106,10 +106,12 @@
       console.log("showError.qty is: " + showError.qty + " " + "(attribute updated from outside function)");
 
       /*  define class Anim */
-      var Anim = function(sizeStart, sizeFinish) {
-        console.log("in Anim with: " + sizeStart + " " + sizeFinish);
-        this.sizeStart = sizeStart;
-        this.sizeFinish = sizeFinish;
+      var Anim = function(sizeStart, sizeFinish, date, kind) {
+        console.log("in Anim with: " + sizeStart + " " + sizeFinish + " " + date + " " + kind);
+        this.animSizeStart = sizeStart;
+        this.animSizeFinish = sizeFinish;
+        this.animDate = date;
+        this.animKind = kind;
       };
 
       /*  methods store and act on internal state 
@@ -117,16 +119,26 @@
       Anim.prototype = {
         getSizeStart: function() {
           console.log("in getSizeStart");
-          return this.sizeStart;
+          return this.animSizeStart;
         },
         getSizeFinish: function() {
           console.log("in getSizeFinish");
-          return this.sizeFinish;
+          return this.animSizeFinish;
+        },
+        getAnimDate: function() {
+          console.log("in getAnimDate");
+          return this.animDate;
+        },
+        getAnimKind: function() {
+          console.log("in getAnimKind");
+          return this.animKind;
         }
       };
 
-      var start = Anim.prototype.getSizeStart();
-      var finish = Anim.prototype.getSizeFinish();
+      var animSizeStart = Anim.prototype.getSizeStart();
+      var animSizeFinish = Anim.prototype.getSizeFinish();
+      var animDate = Anim.prototype.getAnimDate();
+      var animKind = Anim.prototype.getAnimKind();
 
       /*  modify the class */
       Anim.prototype.getSizeChange = function() {
@@ -136,10 +148,111 @@
 
       var change = Anim.prototype.getSizeChange();
 
+      var animDateInstance = new Date(); // Date is built-in JS 
+      var animMonthToday = animDateInstance.getMonth(); // assign
       //  instantiate class with (sizeStart, sizeFinish)
-      var warp = new Anim(50, 100);
-      console.log("warp start is: " + warp.sizeStart);
-      console.log("warp finish is: " + warp.sizeFinish);
+      var warp = new Anim(50, 100, animMonthToday, "Warp Animation");
+      console.log("warp anim size start is: " + warp.animSizeStart);
+      console.log("warp anim size finish is: " + warp.animSizeFinish);
+      console.log("warp anim date is: " + warp.animDate);
+      console.log("warp anim kind is: " + warp.animKind);
+
+      /* Interface Class Constructor */
+      var Interface = function(name, methods) {
+        console.log("in Interface Class Constructor with:");
+        console.log(" - name: " + name);
+        console.log(" - methods: " + methods);
+        if (arguments.length != 2) {
+          throw new Error("Interface constructor called with " + arguments.length + "arguments, but expected exactly 2.");
+        }
+        this.name = name;
+        this.methods = [];
+
+        for (var i = 0, len = methods.length; i < len; i++) {
+          if (typeof methods[i] !== 'string') {
+            throw new Error("Interface constructor expects method names to be passed in as a string.");
+          }
+          this.methods.push(methods[i]);
+        }
+      };
+
+      // Static class method.
+      Interface.ensureImplements = function(object) {
+        console.log("in Interface Static Class Method 'ensureImplements' with:");
+        console.log(" - object: " + object);
+        if (arguments.length < 2) {
+          throw new Error("Function Interface.ensureImplements called with " + arguments.length + "arguments, but expected at least 2.");
+        }
+
+        for (var i = 1, len = arguments.length; i < len; i++) {
+          var interface = arguments[i];
+          if (interface.constructor !== Interface) {
+            throw new Error("Function Interface.ensureImplements expects arguments two and above to be instances of Interface.");
+          }
+
+          for (var j = 0, methodsLen = interface.methods.length; j < methodsLen; j++) {
+            var method = interface.methods[j];
+            if (!object[method] || typeof object[method] !== 'function') {
+              throw new Error("Function Interface.ensureImplements: object does not implement the " + interface.name + " interface. Method " + method + " was not found.");
+            }
+          }
+        }
+      };
+
+      // Interface instance object created (for set of methods deemed as necesary)
+      //  - Name of interface: 'AnimSet'
+      //  - Required methods: 'getSizeStart', 'getSizeFinish', 'getAnimDate', 'getAnimKind' 
+      // Note: Returns error if 
+      var AnimSet = new Interface('AnimSet', ['getSizeStart', 'getSizeFinish', 'getAnimDate', 'getAnimKind']);
+      console.log("AnimSet is: " + AnimSet);
+
+      /*  Constructor uses ensureImplements instead of instanceOf to be Permissive 
+          (more Loosely Coupled) by allowing other classes that matches the 
+          Interface and that implement the required methods */
+      var AnimFormatter = function(animObject) {
+        // // REMOVED AS 'INSTANCE OF' DOES NOT CHECK METHODS IMPLEMENTED
+        // if(!(animObject instanceOf Anim)) {
+        //   throw new Error("AnimFormatter: constructor requires an instance " + "of Anim as an argument.");
+        // }
+
+        /* Accuracy check (ensure required methods implemented) */
+        console.log("in AnimFormatter method with:");
+        console.log(" - animObject: " + animObject);
+
+        Interface.ensureImplements(animObject, AnimSet);
+
+        this.animObject = animObject;
+      };
+
+      AnimFormatter.prototype.renderAnim = function() {
+        console.log("in renderAdmin method");
+        // grab methods from Anim Class passed in and assign to variables
+        var dateOfAnim = this.animObject.getAnimDate();
+        var animArray = this.animObject.getAnimKind();
+
+        var animContainer = document.createElement('div');
+        var animHeader = document.createElement('h3');
+        animHeader.innerHTML = 'Anim from ' + dateOfAnim.toUTCString();
+        animContainer.appendChild(animHeader);
+
+        var animList = document.createElement('ul');
+        animContainer.appendChild(animList);
+
+        for(var i = 0, len = animArray.length; i < len; i++) {
+          var listItem = document.createElement('li');
+          listItem.innerHTML = animArray[i];
+          animList.appendChild(listItem);
+        }
+
+        console.log("renderAnim method complete");
+
+        return animContainer;
+      }
+
+      /*  Create new instance of AnimFormatter Class passing in instance of Anim Class 
+          and its associated methods */
+      var anim = new AnimFormatter(warp);
+      console.log("anim is: " + anim);
   
     })(); 
 
