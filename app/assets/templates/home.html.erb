@@ -224,35 +224,44 @@
         this.animObject = animObject;
       };
 
-      AnimFormatter.prototype.renderAnim = function() {
-        console.log("in renderAdmin method");
+      AnimFormatter.prototype.renderAnim = function(animObject) {
+        console.log("in renderAdmin method. animObject is: " + animObject);
         // grab methods from Anim Class passed in and assign to variables
-        var dateOfAnim = this.animObject.getAnimDate();
-        var animArray = this.animObject.getAnimKind();
-
-        var animContainer = document.createElement('div');
-        var animHeader = document.createElement('h3');
-        animHeader.innerHTML = 'Anim from ' + dateOfAnim.toUTCString();
-        animContainer.appendChild(animHeader);
-
-        var animList = document.createElement('ul');
-        animContainer.appendChild(animList);
-
-        for(var i = 0, len = animArray.length; i < len; i++) {
-          var listItem = document.createElement('li');
-          listItem.innerHTML = animArray[i];
-          animList.appendChild(listItem);
+        var dateOfAnim = animObject.getAnimDate(); // call Anim method
+        var animArray = animObject.getAnimKind(); // call Anim method
+        console.log("grabbed dateOfAnim from Anim method of value: " + dateOfAnim);
+        console.log("grabbed animArray from Anim method of value: " + animArray);
+        
+        // grab logo
+        var myLogo = $("#logo");
+        var randBig= Math.random()*(100000);
+        
+        function loopLi() {
+          var i = 0
+          if (i < randBig) {
+            i++;
+            // generate random number between 0 and 1
+            randSmall = Math.random()*(1);
+            console.log(randSmall);
+            myLogo.css("opacity", randSmall);
+            // generate random number between 0 and 5000 (delay)
+            randMid= Math.random()*(100);
+            setTimeout(loopLi,randMid);
+          }
         }
+        loopLi();
 
         console.log("renderAnim method complete");
 
-        return animContainer;
+        return myLogo;
       }
 
       /*  Create new instance of AnimFormatter Class passing in instance of Anim Class 
           and its associated methods */
       var anim = new AnimFormatter(warp);
       console.log("anim is: " + anim);
+
+      var render = AnimFormatter.prototype.renderAnim(warp);
   
     })(); 
 
